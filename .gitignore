@@ -1,5 +1,5 @@
 cache
 dist
-alblogs.zip
-access-logs.csv client-geo.csv
+*.zip
+*.csv
 node_modules

@@ -1,7 +1,6 @@
-import * as fs from "fs"
-import * as path from "path"
 import { LogFilePreprocessor } from "./LogFilePreprocessor";
+import { LogArchiveDecompressor } from "./LogArchiveDecompressor";
 
-const processor = new LogFilePreprocessor("cache");
+const decompressor = new LogArchiveDecompressor();
 
-processor.Process();
+decompressor.Decompress("cache")

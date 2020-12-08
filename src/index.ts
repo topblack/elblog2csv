@@ -1,7 +1,5 @@
-import * as fs from "fs"
-import * as path from "path"
-import { LogFilePreprocessor } from "./LogFilePreprocessor";
+import { LogFileMerger } from "./LogFileMerger";
 
-const processor = new LogFilePreprocessor("cache");
+const processor = new LogFileMerger("cache");
 
 processor.Process();

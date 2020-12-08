@@ -1,0 +1,33 @@
+export const LOG_ENTRY_SEPARATOR = " ";
+
+export const LOG_HEADERS = [
+    "type",
+    "time",
+    "elb",
+    "clientIpPort",
+    "targetIpPort",
+    "requestProcessingTime",
+    "targetProcessingTime",
+    "responseProcessingTime",
+    "elbStatusCode",
+    "targetStatusCode",
+    "receivedBytes",
+    "sentBytes",
+    "request",
+    "userAgent",
+    "sslCipher",
+    "sslProtocol",
+    "targetGroupAnr",
+    "traceId",
+    "domainName",
+    "chosenCertArn",
+    "matchedRulePriority",
+    "requestCreationTime",
+    "actionsExecuted",
+    "redirectUrl",
+    "errorReason",
+    "targetPortList",
+    "targetStatusCodeList",
+    "classification",
+    "classificationReason"
+];

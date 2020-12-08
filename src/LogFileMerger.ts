@@ -4,8 +4,9 @@ import * as gunzip from "gunzip-file";
 import * as csv from "csv-parser";
 import * as csvWriter from "csv-write-stream";
 import * as geoip from "geoip-lite";
+import { LOG_ENTRY_SEPARATOR, LOG_HEADERS } from "./AwsLogConst";
 
-export class LogFilePreprocessor {
+export class LogFileMerger {
   /**
    * h2 2020-09-21T23:55:03.144807Z app/cdd-prod-int-alb-cdd/902ce81debed00fa 200.91.206.27:36889 10.128.156.5:443 0.000 0.002 0.000 200 200 38 634 "GET https://chemdrawdirect.perkinelmer.cloud:443/js/chemdrawweb/cursors/bin323.cur HTTP/2.0" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" ECDHE-RSA-AES128-GCM-SHA256 TLSv1.2 arn:aws:elasticloadbalancing:us-east-1:771749195520:targetgroup/cdd-prod-int-trgp-cdd/1a0ea1e00ab7c39f "Root=1-5f693d57-3fdfed20e2e29a884b2fc8b0" "chemdrawdirect.perkinelmer.cloud" "session-reused" 0 2020-09-21T23:55:03.142000Z "forward" "-" "-" "10.128.156.5:443" "200" "-" "-"
    * h2
@@ -101,38 +102,8 @@ export class LogFilePreprocessor {
       fs.createReadStream(expectedLogFilePath)
         .pipe(
           csv({
-            separator: " ",
-            headers: [
-              "type",
-              "time",
-              "elb",
-              "clientIpPort",
-              "targetIpPort",
-              "requestProcessingTime",
-              "targetProcessingTime",
-              "responseProcessingTime",
-              "elbStatusCode",
-              "targetStatusCode",
-              "receivedBytes",
-              "sentBytes",
-              "request",
-              "userAgent",
-              "sslCipher",
-              "sslProtocol",
-              "targetGroupAnr",
-              "traceId",
-              "domainName",
-              "chosenCertArn",
-              "matchedRulePriority",
-              "requestCreationTime",
-              "actionsExecuted",
-              "redirectUrl",
-              "errorReason",
-              "targetPortList",
-              "targetStatusCodeList",
-              "classification",
-              "classificationReason"
-            ],
+            separator: LOG_ENTRY_SEPARATOR,
+            headers: LOG_HEADERS,
           })
         )
         .on("data", (data) => {

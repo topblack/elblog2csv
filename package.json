@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/netmask": "^1.0.30",
     "@types/node": "^14.11.2",
     "jest": "^26.4.2",
     "typescript": "^4.0.3"
@@ -23,6 +24,7 @@
     "csv-parser": "^2.3.3",
     "csv-write-stream": "^2.0.0",
     "geoip-lite": "^1.4.2",
-    "gunzip-file": "^0.1.1"
+    "gunzip-file": "^0.1.1",
+    "netmask": "^1.0.6"
   }
 }
